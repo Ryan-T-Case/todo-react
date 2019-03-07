@@ -8,9 +8,10 @@ const Todos = (props) => {
                     {
                         props.todos.map((element, index) => {                            
                             return(
-                                <div>
-                                    <li onClick={props.deleteTodo} id={element} key={index}>{element}</li>
-                                    <button id={element} onClick={props.updateTodo} key={index}>Update</button>
+                                <div key={'list-item-' + index}>
+                                    <li id={element} key={index}>{element}</li>
+                                    <button id={element} onClick={props.updateTodo} key={"update-" + index}>Update</button>
+                                    <button id={element} onClick={props.deleteTodo} key={"delete-button-" + index}>Delete</button>
                                 </div>
                             );
                         })
