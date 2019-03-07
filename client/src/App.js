@@ -18,11 +18,21 @@ class App extends Component {
   handleFormSubmit = (event) => {
     event.preventDefault();
     this.setState({
-      todos: [...this.state.todos, this.state.input]
+      todos: [...this.state.todos, this.state.input],
+      input: ""
     })
   }
 
   // UPDATE a Todo
+  updateTodo = (event) => {
+    event.preventDefault();
+    this.setState({
+      input: event.target.id,
+      todos: this.state.todos.filter(todo => { 
+        return todo !== event.target.id 
+    })
+    })
+  }
 
   // DELETE a Todo
   deleteTodo = (event) => {
@@ -35,8 +45,8 @@ class App extends Component {
     return (
       <div className="App">
         <h1>Todo List!</h1>
-        <Todos todos={this.state.todos} deleteTodo={this.deleteTodo}/>
-        <Form handleInputChange={this.handleInputChange} handleFormSubmit={this.handleFormSubmit}/>
+        <Todos todos={this.state.todos} deleteTodo={this.deleteTodo} updateTodo={this.updateTodo}/>
+        <Form handleInputChange={this.handleInputChange} input={this.state.input} handleFormSubmit={this.handleFormSubmit}/>
       </div>
     );
   }
