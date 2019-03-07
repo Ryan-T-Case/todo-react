@@ -26,7 +26,7 @@ class App extends Component {
 
   // DELETE a Todo
   deleteTodo = (event) => {
-    this.setState({todos: this.state.todos.filter(function(todo) { 
+    this.setState({todos: this.state.todos.filter(todo => { 
       return todo !== event.target.id 
   })});
   } 
