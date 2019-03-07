@@ -4,12 +4,11 @@ const Todos = (props) => {
         return (
             <div>
                 <ul>
+                    {/* READ Todos */}
                     {
-                        props.todos.map((element, index) => {
-                            console.log(element);
-                            
+                        props.todos.map((element, index) => {                            
                             return(
-                                <li onClick={props.deleteTodo} key={index}>{element}</li>
+                                <li onClick={props.deleteTodo} id={element} key={index}>{element}</li>
                             );
                         })
                     }

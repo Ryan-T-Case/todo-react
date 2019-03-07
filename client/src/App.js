@@ -14,6 +14,7 @@ class App extends Component {
     });
   }
 
+  // CREATE New Todo
   handleFormSubmit = (event) => {
     event.preventDefault();
     this.setState({
@@ -21,14 +22,13 @@ class App extends Component {
     })
   }
 
+  // UPDATE a Todo
+
+  // DELETE a Todo
   deleteTodo = (event) => {
-    let array = this.state.todos;
-    console.log(event.target.value);
-    let index = array.indexOf(event.target.value);
-    array.splice(index, 1);
-    this.setState({
-      todos: array
-    })
+    this.setState({todos: this.state.todos.filter(function(todo) { 
+      return todo !== event.target.id 
+  })});
   } 
 
   render() {
